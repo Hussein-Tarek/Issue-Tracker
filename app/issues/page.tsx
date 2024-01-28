@@ -10,9 +10,8 @@ interface Status {
   status: "OPEN" | "IN_PROGRESS" | "CLOSED";
 }
 
-const page = async () => {
+const IssuePage = async () => {
   const issues = await prisma.issue.findMany();
-  await delay(2000);
   return (
     <div>
       <IssueActions />
@@ -51,4 +50,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default IssuePage;
