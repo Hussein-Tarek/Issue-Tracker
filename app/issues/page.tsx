@@ -1,10 +1,7 @@
-import { Table } from "@radix-ui/themes";
-import React from "react";
 import prisma from "@/prisma/client";
-import IssueStatusBadge from "../components/IssueStatusBadge";
-import delay from "delay";
+import { Table } from "@radix-ui/themes";
+import { IssueStatusBadge, Link } from "@/app/components";
 import IssueActions from "./IssueActions";
-import Link from "../components/Link";
 
 interface Status {
   status: "OPEN" | "IN_PROGRESS" | "CLOSED";
