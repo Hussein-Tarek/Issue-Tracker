@@ -6,7 +6,6 @@ export async function PATCH(
   { params }: { params: { id: string } }
 ) {
   const body = await request.json();
-  // return NextResponse()
   const validation = IssueSchema.safeParse(body);
   if (!validation.success)
     return NextResponse.json(validation.error.format(), {
