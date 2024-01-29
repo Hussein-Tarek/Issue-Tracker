@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AiFillBug } from "react-icons/ai";
@@ -13,6 +14,7 @@ import {
   Flex,
   Text,
 } from "@radix-ui/themes";
+import Skeleton from "@/app/components/Skeleton";
 
 const Navbar = () => {
   return (
@@ -59,7 +61,7 @@ const NavLinks = () => {
 
 const AuthStatus = () => {
   const { status, data: session } = useSession();
-  if (status === "loading") return null;
+  if (status === "loading") return <Skeleton width="3rem" />;
   if (status === "unauthenticated")
     return (
       <Link className="nav-link" href="/api/auth/signin">
