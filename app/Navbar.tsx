@@ -68,13 +68,14 @@ const AuthStatus = () => {
         Login
       </Link>
     );
+  console.log(status, session);
   return (
     <Box>
       <DropdownMenu.Root>
         <DropdownMenu.Trigger>
           <Avatar
-            src={session!.user?.image!}
-            fallback={session!.user?.name!.slice(0, 1)!}
+            src={session?.user?.image!}
+            fallback={session?.user?.name!.slice(0, 1)!}
             radius="full"
             size="2"
             className="cursor-pointer"
