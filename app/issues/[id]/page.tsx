@@ -19,7 +19,6 @@ const IssueDetailsPage = async ({ params: { id } }: Props) => {
     where: { id: +id },
   });
   if (!issue) notFound();
-  console.log(issue);
 
   return (
     <Grid columns={{ initial: "1", sm: "5" }} gap="5">
