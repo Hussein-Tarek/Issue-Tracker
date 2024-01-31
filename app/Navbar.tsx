@@ -68,7 +68,6 @@ const AuthStatus = () => {
         Login
       </Link>
     );
-  console.log(status, session);
   return (
     <Box>
       <DropdownMenu.Root>

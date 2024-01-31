@@ -6,14 +6,14 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-const DeleteIssueButton = ({ id }: { id: number }) => {
+const DeleteIssueButton = ({ issueId }: { issueId: number }) => {
   const router = useRouter();
   const [error, setError] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const handleDeleteIssue = async () => {
     try {
       setDeleting(true);
-      await axios.delete(`/api/issues/${id}`);
+      await axios.delete(`/api/issues/${issueId}`);
       router.push("/issues/list");
       router.refresh();
     } catch (error) {

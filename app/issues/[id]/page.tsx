@@ -19,6 +19,7 @@ const IssueDetailsPage = async ({ params: { id } }: Props) => {
     where: { id: +id },
   });
   if (!issue) notFound();
+  console.log(issue);
 
   return (
     <Grid columns={{ initial: "1", sm: "5" }} gap="5">
@@ -28,9 +29,9 @@ const IssueDetailsPage = async ({ params: { id } }: Props) => {
       {session && (
         <Box>
           <Flex direction="column" gap="4">
-            <AssigneeSelect />
+            <AssigneeSelect issue={issue} />
             <EditIssueButton issueId={issue.id} />
-            <DeleteIssueButton id={issue.id} />
+            <DeleteIssueButton issueId={issue.id} />
           </Flex>
         </Box>
       )}
