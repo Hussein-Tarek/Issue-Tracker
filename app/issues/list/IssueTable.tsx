@@ -5,8 +5,13 @@ import React from "react";
 import NextLink from "next/link";
 import { Issue } from "@prisma/client";
 
+export interface Query {
+  status: string;
+  orderBy: keyof Issue;
+  page: string;
+}
 interface Props {
-  searchParams: { status: string; orderBy: keyof Issue; page: string };
+  searchParams: Query;
   issues: Issue[];
 }
 const IssueTable = ({ searchParams, issues }: Props) => {

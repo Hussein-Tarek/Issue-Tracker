@@ -1,23 +1,16 @@
-import { Flex, Table } from "@radix-ui/themes";
-import { Issue } from "@prisma/client";
+import { Flex } from "@radix-ui/themes";
 
-import IssueActions from "./IssueActions";
-import prisma from "@/prisma/client";
-import { IssueStatusBadge, Link } from "@/app/components";
-import { ArrowUpIcon } from "@radix-ui/react-icons";
 import Pagination from "@/app/components/Pagination";
-import IssueTable, { columnsNames } from "./IssueTable";
+import prisma from "@/prisma/client";
+import IssueActions from "./IssueActions";
+import IssueTable, { Query, columnsNames } from "./IssueTable";
 
 interface Status {
   status: "OPEN" | "IN_PROGRESS" | "CLOSED";
 }
 const statues = ["OPEN", "IN_PROGRESS", "CLOSED"];
 
-const IssuePage = async ({
-  searchParams,
-}: {
-  searchParams: { status: string; orderBy: keyof Issue; page: string };
-}) => {
+const IssuePage = async ({ searchParams }: { searchParams: Query }) => {
   const pageSize = 10;
 
   const status = statues.includes(searchParams.status)
